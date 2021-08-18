@@ -10,6 +10,7 @@ const dotButton = document.querySelector(".btn__dot");
 const clearButton = document.querySelector(".btn__clear");
 const sumButton = document.querySelector(".btn__sum");
 const multiplicationButton = document.querySelector(".btn__mult");
+const divisionButton = document.querySelector(".btn__div");
 const equalButton = document.querySelector(".btn__equal");
 
 digitButtons.forEach((item) => {
@@ -23,6 +24,8 @@ clearButton.addEventListener("click", clear);
 sumButton.addEventListener("click", sum);
 
 multiplicationButton.addEventListener("click", multiplication);
+
+divisionButton.addEventListener("click", division);
 
 equalButton.addEventListener("click", equal);
 
@@ -83,6 +86,17 @@ function multiplication() {
   return;
 }
 
+function division() {
+  if (!firstNumber) {
+    firstNumber = displayContent.textContent;
+    operation = "division";
+    isSecondNumberFirstDigit = true;
+    return;
+  }
+
+  return;
+}
+
 function equal() {
   if (!firstNumber) return;
 
@@ -96,6 +110,12 @@ function equal() {
     case "multiplication": {
       displayContent.textContent =
         parseFloat(firstNumber) * parseFloat(displayContent.textContent);
+      break;
+    }
+
+    case "division": {
+      displayContent.textContent =
+        parseFloat(firstNumber) / parseFloat(displayContent.textContent);
       break;
     }
 
