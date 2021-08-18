@@ -41,7 +41,7 @@ body {
   margin-bottom: 30px;
   margin-top: 40px;
   position: relative;
-  width: 100%;
+  width: 200px;
 }
 
 .calculator__display-content {
@@ -63,7 +63,7 @@ body {
 .btn {
   border: none;
   border-radius: 50px;
-  font-size: 2rem;
+  font-size: 1.6rem;
   height: 40px;
   padding: 2px 0px;
   width: 40px;
