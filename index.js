@@ -2,12 +2,14 @@ const MAX_DIGITS = 7;
 let isLastDigit = false;
 let firstNumber = null;
 let isSecondNumberFirstDigit = false;
+let operation;
 
 const displayContent = document.querySelector(".calculator__display-content");
 const digitButtons = document.querySelectorAll(".btn__dig");
 const dotButton = document.querySelector(".btn__dot");
 const clearButton = document.querySelector(".btn__clear");
 const sumButton = document.querySelector(".btn__sum");
+const multiplicationButton = document.querySelector(".btn__mult");
 const equalButton = document.querySelector(".btn__equal");
 
 digitButtons.forEach((item) => {
@@ -19,6 +21,8 @@ dotButton.addEventListener("click", addDot);
 clearButton.addEventListener("click", clear);
 
 sumButton.addEventListener("click", sum);
+
+multiplicationButton.addEventListener("click", multiplication);
 
 equalButton.addEventListener("click", equal);
 
@@ -60,6 +64,18 @@ function clear() {
 function sum() {
   if (!firstNumber) {
     firstNumber = displayContent.textContent;
+    operation = "sum";
+    isSecondNumberFirstDigit = true;
+    return;
+  }
+
+  return;
+}
+
+function multiplication() {
+  if (!firstNumber) {
+    firstNumber = displayContent.textContent;
+    operation = "multiplication";
     isSecondNumberFirstDigit = true;
     return;
   }
@@ -70,10 +86,22 @@ function sum() {
 function equal() {
   if (!firstNumber) return;
 
-  const firstN = parseFloat(firstNumber);
+  switch (operation) {
+    case "sum": {
+      displayContent.textContent =
+        parseFloat(firstNumber) + parseFloat(displayContent.textContent);
+      break;
+    }
 
-  displayContent.textContent =
-    parseFloat(firstNumber) + parseFloat(displayContent.textContent);
+    case "multiplication": {
+      displayContent.textContent =
+        parseFloat(firstNumber) * parseFloat(displayContent.textContent);
+      break;
+    }
+
+    default:
+      break;
+  }
 
   firstNumber = false;
 }
