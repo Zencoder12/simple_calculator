@@ -17,6 +17,7 @@ const subtractionButton = document.querySelector(".btn__sub");
 const equalButton = document.querySelector(".btn__equal");
 const signButton = document.querySelector(".btn__sign");
 const allButtons = document.querySelectorAll(".btn");
+const btns = [...allButtons];
 
 onOffButton.addEventListener("click", turnOnOff);
 
@@ -54,11 +55,15 @@ function turnOnOff() {
 }
 
 function enableAllButtons() {
-  allButtons.forEach((btn) => btn.removeAttribute("disabled"));
+  [...allButtons]
+    .filter((btn) => !btn.classList.contains("btn__onoff"))
+    .forEach((btn) => (btn.disabled = false));
 }
 
 function disableAllButtons() {
-  allButtons.forEach((btn) => (btn.disabled = true));
+  [...allButtons]
+    .filter((btn) => !btn.classList.contains("btn__onoff"))
+    .forEach((btn) => (btn.disabled = true));
 }
 
 function displayDigit() {
