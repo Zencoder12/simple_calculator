@@ -41,7 +41,7 @@ body {
   margin-bottom: 30px;
   margin-top: 40px;
   position: relative;
-  width: 200px;
+  width: 210px;
 }
 
 .calculator__display-content {
@@ -104,7 +104,7 @@ body {
   font-weight: 600;
 }
 
-.btn--zero {
+.btn--0 {
   grid-column: 1 / 3;
   grid-row: 5 / 6;
   width: 100%;

@@ -1,4 +1,4 @@
-const MAX_DIGITS = 7;
+const MAX_DIGITS = 8;
 let isOn = false;
 let isLastDigit = false;
 let firstNumber = null;
@@ -19,25 +19,16 @@ const signButton = document.querySelector(".btn__sign");
 const allButtons = document.querySelectorAll(".btn");
 
 onOffButton.addEventListener("click", turnOnOff);
-
 digitButtons.forEach((item) => {
   item.addEventListener("click", displayDigit);
 });
-
 dotButton.addEventListener("click", addDot);
-
 clearButton.addEventListener("click", clear);
-
 sumButton.addEventListener("click", sum);
-
 multiplicationButton.addEventListener("click", multiplication);
-
 divisionButton.addEventListener("click", division);
-
 subtractionButton.addEventListener("click", subtraction);
-
 equalButton.addEventListener("click", equal);
-
 signButton.addEventListener("click", changeSign);
 
 function turnOnOff() {
@@ -160,26 +151,42 @@ function equal() {
 
   switch (operation) {
     case "sum": {
-      displayContent.textContent =
+      const result =
         parseFloat(firstNumber) + parseFloat(displayContent.textContent);
+
+      displayContent.textContent =
+        result.toString().length > MAX_DIGITS ? result.toPrecision(4) : result;
+
       break;
     }
 
     case "multiplication": {
-      displayContent.textContent =
+      const result =
         parseFloat(firstNumber) * parseFloat(displayContent.textContent);
+
+      displayContent.textContent =
+        result.toString().length > MAX_DIGITS ? result.toPrecision(4) : result;
+
       break;
     }
 
     case "division": {
-      displayContent.textContent =
+      const result =
         parseFloat(firstNumber) / parseFloat(displayContent.textContent);
+
+      displayContent.textContent =
+        result.toString().length > MAX_DIGITS ? result.toPrecision(4) : result;
+
       break;
     }
 
     case "subtraction": {
-      displayContent.textContent =
+      const result =
         parseFloat(firstNumber) - parseFloat(displayContent.textContent);
+
+      displayContent.textContent =
+        result.toString().length > MAX_DIGITS ? result.toPrecision(4) : result;
+
       break;
     }
 
