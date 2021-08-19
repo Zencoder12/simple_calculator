@@ -1,10 +1,12 @@
 const MAX_DIGITS = 7;
+let isOn = false;
 let isLastDigit = false;
 let firstNumber = null;
 let isSecondNumberFirstDigit = false;
 let operation;
 
 const displayContent = document.querySelector(".calculator__display-content");
+const onOffButton = document.querySelector(".btn__onoff");
 const digitButtons = document.querySelectorAll(".btn__dig");
 const dotButton = document.querySelector(".btn__dot");
 const clearButton = document.querySelector(".btn__clear");
@@ -14,6 +16,9 @@ const divisionButton = document.querySelector(".btn__div");
 const subtractionButton = document.querySelector(".btn__sub");
 const equalButton = document.querySelector(".btn__equal");
 const signButton = document.querySelector(".btn__sign");
+const allButtons = document.querySelectorAll(".btn");
+
+onOffButton.addEventListener("click", turnOnOff);
 
 digitButtons.forEach((item) => {
   item.addEventListener("click", displayDigit);
@@ -34,6 +39,27 @@ subtractionButton.addEventListener("click", subtraction);
 equalButton.addEventListener("click", equal);
 
 signButton.addEventListener("click", changeSign);
+
+function turnOnOff() {
+  if (!isOn) {
+    displayContent.textContent = 0;
+    enableAllButtons();
+    isOn = true;
+    return;
+  }
+
+  displayContent.textContent = " ";
+  disableAllButtons();
+  isOn = false;
+}
+
+function enableAllButtons() {
+  allButtons.forEach((btn) => btn.removeAttribute("disabled"));
+}
+
+function disableAllButtons() {
+  allButtons.forEach((btn) => (btn.disabled = true));
+}
 
 function displayDigit() {
   if (displayContent.textContent === "0") {
