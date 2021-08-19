@@ -13,6 +13,7 @@ const multiplicationButton = document.querySelector(".btn__mult");
 const divisionButton = document.querySelector(".btn__div");
 const subtractionButton = document.querySelector(".btn__sub");
 const equalButton = document.querySelector(".btn__equal");
+const signButton = document.querySelector(".btn__sign");
 
 digitButtons.forEach((item) => {
   item.addEventListener("click", displayDigit);
@@ -31,6 +32,8 @@ divisionButton.addEventListener("click", division);
 subtractionButton.addEventListener("click", subtraction);
 
 equalButton.addEventListener("click", equal);
+
+signButton.addEventListener("click", changeSign);
 
 function displayDigit() {
   if (displayContent.textContent === "0") {
@@ -109,6 +112,17 @@ function subtraction() {
   }
 
   return;
+}
+
+function changeSign() {
+  if (displayContent.textContent === "0") return;
+
+  if (firstNumber && isSecondNumberFirstDigit) {
+    displayContent.textContent = displayContent.textContent * -1;
+    firstNumber = displayContent.textContent;
+  } else {
+    displayContent.textContent = displayContent.textContent * -1;
+  }
 }
 
 function equal() {
