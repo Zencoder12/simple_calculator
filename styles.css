@@ -75,7 +75,7 @@ body {
   transition: background 0.3s;
 }
 
-.btn--lightgrey:hover {
+.btn--lightgrey:hover:enabled {
   background: rgb(190, 188, 188);
 }
 
@@ -85,7 +85,7 @@ body {
   transition: background 0.3s;
 }
 
-.btn--orange:hover {
+.btn--orange:hover:enabled {
   background: rgba(255, 167, 4, 0.877);
 }
 
@@ -95,7 +95,7 @@ body {
   transition: background 0.3s;
 }
 
-.btn--darkgrey:hover {
+.btn--darkgrey:hover:enabled {
   background: rgb(58, 56, 51);
 }
 

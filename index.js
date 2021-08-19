@@ -17,7 +17,6 @@ const subtractionButton = document.querySelector(".btn__sub");
 const equalButton = document.querySelector(".btn__equal");
 const signButton = document.querySelector(".btn__sign");
 const allButtons = document.querySelectorAll(".btn");
-const btns = [...allButtons];
 
 onOffButton.addEventListener("click", turnOnOff);
 
