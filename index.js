@@ -61,6 +61,8 @@ function displayDigit() {
     return (displayContent.textContent = this.textContent);
   }
 
+  if (isDisplayFull()) return;
+
   /* allow to erase the first number of the operation and replace with 
   the first digit of the second number after an operation has been pressed */
   if (isSecondNumberFirstDigit) {
@@ -68,8 +70,6 @@ function displayDigit() {
     isSecondNumberFirstDigit = false;
     return;
   }
-
-  if (isDisplayFull()) return;
 
   displayContent.textContent = displayContent.textContent + this.textContent;
 }
